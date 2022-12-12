@@ -1,0 +1,167 @@
+
+bubble_sort.o:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <bubble_sort>:
+   0:	715d                	addi	sp,sp,-80
+   2:	e4a2                	sd	s0,72(sp)
+   4:	0880                	addi	s0,sp,80
+   6:	000007b7          	lui	a5,0x0
+   a:	00078793          	mv	a5,a5
+   e:	638c                	ld	a1,0(a5)
+  10:	6790                	ld	a2,8(a5)
+  12:	6b94                	ld	a3,16(a5)
+  14:	6f98                	ld	a4,24(a5)
+  16:	739c                	ld	a5,32(a5)
+  18:	fab43c23          	sd	a1,-72(s0)
+  1c:	fcc43023          	sd	a2,-64(s0)
+  20:	fcd43423          	sd	a3,-56(s0)
+  24:	fce43823          	sd	a4,-48(s0)
+  28:	fcf43c23          	sd	a5,-40(s0)
+  2c:	47a9                	li	a5,10
+  2e:	fef42223          	sw	a5,-28(s0)
+  32:	a065                	j	da <.L2>
+
+0000000000000034 <.L6>:
+  34:	fe042423          	sw	zero,-24(s0)
+  38:	a8a5                	j	b0 <.L3>
+
+000000000000003a <.L5>:
+  3a:	fe842783          	lw	a5,-24(s0)
+  3e:	078a                	slli	a5,a5,0x2
+  40:	17c1                	addi	a5,a5,-16 # fffffffffffffff0 <.L2+0xffffffffffffff16>
+  42:	97a2                	add	a5,a5,s0
+  44:	fc87a703          	lw	a4,-56(a5)
+  48:	fe842783          	lw	a5,-24(s0)
+  4c:	2785                	addiw	a5,a5,1
+  4e:	2781                	sext.w	a5,a5
+  50:	078a                	slli	a5,a5,0x2
+  52:	17c1                	addi	a5,a5,-16
+  54:	97a2                	add	a5,a5,s0
+  56:	fc87a783          	lw	a5,-56(a5)
+  5a:	04e7d663          	bge	a5,a4,a6 <.L4>
+  5e:	fe842783          	lw	a5,-24(s0)
+  62:	078a                	slli	a5,a5,0x2
+  64:	17c1                	addi	a5,a5,-16
+  66:	97a2                	add	a5,a5,s0
+  68:	fc87a783          	lw	a5,-56(a5)
+  6c:	fef42023          	sw	a5,-32(s0)
+  70:	fe842783          	lw	a5,-24(s0)
+  74:	2785                	addiw	a5,a5,1
+  76:	2781                	sext.w	a5,a5
+  78:	078a                	slli	a5,a5,0x2
+  7a:	17c1                	addi	a5,a5,-16
+  7c:	97a2                	add	a5,a5,s0
+  7e:	fc87a703          	lw	a4,-56(a5)
+  82:	fe842783          	lw	a5,-24(s0)
+  86:	078a                	slli	a5,a5,0x2
+  88:	17c1                	addi	a5,a5,-16
+  8a:	97a2                	add	a5,a5,s0
+  8c:	fce7a423          	sw	a4,-56(a5)
+  90:	fe842783          	lw	a5,-24(s0)
+  94:	2785                	addiw	a5,a5,1
+  96:	2781                	sext.w	a5,a5
+  98:	078a                	slli	a5,a5,0x2
+  9a:	17c1                	addi	a5,a5,-16
+  9c:	97a2                	add	a5,a5,s0
+  9e:	fe042703          	lw	a4,-32(s0)
+  a2:	fce7a423          	sw	a4,-56(a5)
+
+00000000000000a6 <.L4>:
+  a6:	fe842783          	lw	a5,-24(s0)
+  aa:	2785                	addiw	a5,a5,1
+  ac:	fef42423          	sw	a5,-24(s0)
+
+00000000000000b0 <.L3>:
+  b0:	fe442783          	lw	a5,-28(s0)
+  b4:	873e                	mv	a4,a5
+  b6:	fec42783          	lw	a5,-20(s0)
+  ba:	40f707bb          	subw	a5,a4,a5
+  be:	2781                	sext.w	a5,a5
+  c0:	37fd                	addiw	a5,a5,-1
+  c2:	0007871b          	sext.w	a4,a5
+  c6:	fe842783          	lw	a5,-24(s0)
+  ca:	2781                	sext.w	a5,a5
+  cc:	f6e7c7e3          	blt	a5,a4,3a <.L5>
+  d0:	fec42783          	lw	a5,-20(s0)
+  d4:	2785                	addiw	a5,a5,1
+  d6:	fef42623          	sw	a5,-20(s0)
+
+00000000000000da <.L2>:
+  da:	fe442783          	lw	a5,-28(s0)
+  de:	37fd                	addiw	a5,a5,-1
+  e0:	0007871b          	sext.w	a4,a5
+  e4:	fec42783          	lw	a5,-20(s0)
+  e8:	2781                	sext.w	a5,a5
+  ea:	f4e7c5e3          	blt	a5,a4,34 <.L6>
+  ee:	0001                	nop
+  f0:	0001                	nop
+  f2:	6426                	ld	s0,72(sp)
+  f4:	6161                	addi	sp,sp,80
+  f6:	8082                	ret
+
+Disassembly of section .rodata:
+
+0000000000000000 <.LC0>:
+   0:	00000013          	nop
+   4:	0024                	addi	s1,sp,8
+   6:	0000                	unimp
+   8:	0024                	addi	s1,sp,8
+   a:	0000                	unimp
+   c:	0054                	addi	a3,sp,4
+   e:	0000                	unimp
+  10:	003a                	c.slli	zero,0xe
+  12:	0000                	unimp
+  14:	0059                	c.nop	22
+  16:	0000                	unimp
+  18:	0000                	unimp
+  1a:	0000                	unimp
+  1c:	0048                	addi	a0,sp,4
+  1e:	0000                	unimp
+  20:	0015                	c.nop	5
+  22:	0000                	unimp
+  24:	001a                	c.slli	zero,0x6
+	...
+
+Disassembly of section .comment:
+
+0000000000000000 <.comment>:
+   0:	4700                	lw	s0,8(a4)
+   2:	203a4343          	fmadd.s	ft6,fs4,ft3,ft4,rmm
+   6:	6728                	ld	a0,72(a4)
+   8:	6532                	ld	a0,264(sp)
+   a:	3565                	addiw	a0,a0,-7
+   c:	3465                	addiw	s0,s0,-7
+   e:	31303033          	.4byte	0x31303033
+  12:	2938                	fld	fa4,80(a0)
+  14:	3120                	fld	fs0,96(a0)
+  16:	2e32                	fld	ft8,264(sp)
+  18:	2e32                	fld	ft8,264(sp)
+  1a:	0030                	addi	a2,sp,8
+
+Disassembly of section .riscv.attributes:
+
+0000000000000000 <.riscv.attributes>:
+   0:	3441                	addiw	s0,s0,-16
+   2:	0000                	unimp
+   4:	7200                	ld	s0,32(a2)
+   6:	7369                	lui	t1,0xffffa
+   8:	01007663          	bgeu	zero,a6,14 <.riscv.attributes+0x14>
+   c:	002a                	c.slli	zero,0xa
+   e:	0000                	unimp
+  10:	1004                	addi	s1,sp,32
+  12:	7205                	lui	tp,0xfffe1
+  14:	3676                	fld	fa2,376(sp)
+  16:	6934                	ld	a3,80(a0)
+  18:	7032                	.2byte	0x7032
+  1a:	5f30                	lw	a2,120(a4)
+  1c:	326d                	addiw	tp,tp,-5 # fffffffffffe0ffb <.L2+0xfffffffffffe0f21>
+  1e:	3070                	fld	fa2,224(s0)
+  20:	615f 7032 5f30      	.byte	0x5f, 0x61, 0x32, 0x70, 0x30, 0x5f
+  26:	3266                	fld	ft4,120(sp)
+  28:	3070                	fld	fa2,224(s0)
+  2a:	645f 7032 5f30      	.byte	0x5f, 0x64, 0x32, 0x70, 0x30, 0x5f
+  30:	30703263          	.4byte	0x30703263
+	...

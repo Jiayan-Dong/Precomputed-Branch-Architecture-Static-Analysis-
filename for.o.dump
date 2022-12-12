@@ -1,0 +1,111 @@
+
+for.o:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <mfor>:
+   0:	7179                	addi	sp,sp,-48
+   2:	f422                	sd	s0,40(sp)
+   4:	1800                	addi	s0,sp,48
+   6:	000007b7          	lui	a5,0x0
+   a:	00078793          	mv	a5,a5
+   e:	6398                	ld	a4,0(a5)
+  10:	fce43823          	sd	a4,-48(s0)
+  14:	679c                	ld	a5,8(a5)
+  16:	fcf43c23          	sd	a5,-40(s0)
+  1a:	fe042623          	sw	zero,-20(s0)
+  1e:	4791                	li	a5,4
+  20:	fef42223          	sw	a5,-28(s0)
+  24:	fe042423          	sw	zero,-24(s0)
+  28:	a099                	j	6e <.L2>
+
+000000000000002a <.L3>:
+  2a:	fe842783          	lw	a5,-24(s0)
+  2e:	078a                	slli	a5,a5,0x2
+  30:	17c1                	addi	a5,a5,-16 # fffffffffffffff0 <.L2+0xffffffffffffff82>
+  32:	97a2                	add	a5,a5,s0
+  34:	fe07a783          	lw	a5,-32(a5)
+  38:	fec42703          	lw	a4,-20(s0)
+  3c:	9fb9                	addw	a5,a5,a4
+  3e:	fef42623          	sw	a5,-20(s0)
+  42:	fe842783          	lw	a5,-24(s0)
+  46:	078a                	slli	a5,a5,0x2
+  48:	17c1                	addi	a5,a5,-16
+  4a:	97a2                	add	a5,a5,s0
+  4c:	fe07a783          	lw	a5,-32(a5)
+  50:	2785                	addiw	a5,a5,1
+  52:	0007871b          	sext.w	a4,a5
+  56:	fe842783          	lw	a5,-24(s0)
+  5a:	078a                	slli	a5,a5,0x2
+  5c:	17c1                	addi	a5,a5,-16
+  5e:	97a2                	add	a5,a5,s0
+  60:	fee7a023          	sw	a4,-32(a5)
+  64:	fe842783          	lw	a5,-24(s0)
+  68:	2785                	addiw	a5,a5,1
+  6a:	fef42423          	sw	a5,-24(s0)
+
+000000000000006e <.L2>:
+  6e:	fe842783          	lw	a5,-24(s0)
+  72:	873e                	mv	a4,a5
+  74:	fe442783          	lw	a5,-28(s0)
+  78:	2701                	sext.w	a4,a4
+  7a:	2781                	sext.w	a5,a5
+  7c:	faf747e3          	blt	a4,a5,2a <.L3>
+  80:	0001                	nop
+  82:	0001                	nop
+  84:	7422                	ld	s0,40(sp)
+  86:	6145                	addi	sp,sp,48
+  88:	8082                	ret
+
+Disassembly of section .rodata:
+
+0000000000000000 <.LC0>:
+   0:	0001                	nop
+   2:	0000                	unimp
+   4:	0002                	c.slli64	zero
+   6:	0000                	unimp
+   8:	00000003          	lb	zero,0(zero) # 0 <.LC0>
+   c:	0004                	.2byte	0x4
+	...
+
+Disassembly of section .comment:
+
+0000000000000000 <.comment>:
+   0:	4700                	lw	s0,8(a4)
+   2:	203a4343          	fmadd.s	ft6,fs4,ft3,ft4,rmm
+   6:	6728                	ld	a0,72(a4)
+   8:	6532                	ld	a0,264(sp)
+   a:	3565                	addiw	a0,a0,-7
+   c:	3465                	addiw	s0,s0,-7
+   e:	31303033          	.4byte	0x31303033
+  12:	2938                	fld	fa4,80(a0)
+  14:	3120                	fld	fs0,96(a0)
+  16:	2e32                	fld	ft8,264(sp)
+  18:	2e32                	fld	ft8,264(sp)
+  1a:	0030                	addi	a2,sp,8
+
+Disassembly of section .riscv.attributes:
+
+0000000000000000 <.riscv.attributes>:
+   0:	3441                	addiw	s0,s0,-16
+   2:	0000                	unimp
+   4:	7200                	ld	s0,32(a2)
+   6:	7369                	lui	t1,0xffffa
+   8:	01007663          	bgeu	zero,a6,14 <.riscv.attributes+0x14>
+   c:	002a                	c.slli	zero,0xa
+   e:	0000                	unimp
+  10:	1004                	addi	s1,sp,32
+  12:	7205                	lui	tp,0xfffe1
+  14:	3676                	fld	fa2,376(sp)
+  16:	6934                	ld	a3,80(a0)
+  18:	7032                	.2byte	0x7032
+  1a:	5f30                	lw	a2,120(a4)
+  1c:	326d                	addiw	tp,tp,-5 # fffffffffffe0ffb <.L2+0xfffffffffffe0f8d>
+  1e:	3070                	fld	fa2,224(s0)
+  20:	615f 7032 5f30      	.byte	0x5f, 0x61, 0x32, 0x70, 0x30, 0x5f
+  26:	3266                	fld	ft4,120(sp)
+  28:	3070                	fld	fa2,224(s0)
+  2a:	645f 7032 5f30      	.byte	0x5f, 0x64, 0x32, 0x70, 0x30, 0x5f
+  30:	30703263          	.4byte	0x30703263
+	...
